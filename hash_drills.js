@@ -42,19 +42,50 @@ hobbitMap.set('Ent', 'Treeeard');
 // }
 function palindrome(str) {
   var palindromeHash = new Map();
-  //iterate throgh argument str
+
   for (let i = 0; i < str.length; i++) {
+    //loop through sting adding each character to hash
     if (!palindromeHash.get(str[i])) {
+      // if character isn't already in hash map, give it a value of 1
       palindromeHash.set(str[i], 1);
     } else {
+      //otherwise increment the characters value by 1
       palindromeHash.set(str[i], palindromeHash.get(str[i]) + 1);
-      //   console.log(palindromeHash);
     }
   }
-  //   console.log(palindromeHash)
-  for (let i in palindromeHash) {
-    console.log('test B');
+
+  let counter = 0;
+  //object of values
+  let values = palindromeHash.values();
+ 
+  for (let i of values) {
+    //if value is odd, increment counter
+    if (i % 2 !== 0) {
+      counter++;
+    }
   }
+
+  // if counter is larger than one, it can't be a palindrome
+  if (counter > 1) {
+    return false;
+  }
+
+  return true;
 }
 
-console.log(palindrome('dad'));
+console.log(palindrome('rrraaaccceeefff'));
+
+// Write an algorithm to group a list of words into anagrams. 
+// For example, if the input was 
+// ['east', 'cars', 'acre', 'arcs', 'teas', 'eats', 'race'], 
+// the output should be: 
+// [['east', 'teas', 'eats'], ['cars', 'arcs'], ['acre', 'race']].
+
+
+// input:  ['east', 'cars', 'acre', 'arcs', 'teas', 'eats', 'race'], 
+// output: [['east', 'teas', 'eats'], ['cars', 'arcs'], ['acre', 'race']]
+
+// key is word, value is an array of letters.
+// for each word 
+
+// 
